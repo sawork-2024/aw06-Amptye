@@ -10,3 +10,18 @@
 5. 如有兴趣可在kubernetes或者minikube上进行部署。
 
 请编写readme对自己的系统和实验进行详细介绍。
+
+## 系统介绍
+1. 实现了4个微服务：用户管理服务、商品管理服务、购物车管理服务、订单管理服务；
+2. 实现了 discovery、gateway 等微服务架构下需要的基础设施服务；
+3. 可以通过 gateway 访问4个服务，分别通过:   
+   http://localhost:8080/api/user
+   http://localhost:8080/api/product
+   http://localhost:8080/api/cart
+   http://localhost:8080/api/order
+4. 使用了`RestTemplate`进行服务间访问，并验证Client-side LB可行：  
+   * 首先开启两个用户管理服务：![](two-user-server.png)
+   * 然后访问 http://localhost:8080/api/user/users ，得到信息：![](user-server-1.png)
+   * 再次访问 http://localhost:8080/api/user/users ，得到信息：![](user-server-2.png)
+   * 这两个信息分别于两个用户管理服务的实例发出，可以验证Client-side LB可行
+5. 在 geteway 中查看某个用户的购物车时使用了断路器，先访问用户管理服务，在访问购物车管理服务，若接收到错误信息，使用断路器，返回一个空的购物车；

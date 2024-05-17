@@ -34,9 +34,9 @@ public class UserController implements UsersApi {
     @Override
     public ResponseEntity<List<UserDto>> listUsers() {
         List<UserDto> users = new ArrayList<>(userMapper.toUserDtos(this.userService.findAllUsers()));
-        if (users.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        if (users.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 

@@ -39,9 +39,9 @@ public class ProductController implements ProductsApi {
     public ResponseEntity<List<ProductDto>> listProducts() {
         ProductsApi.super.listProducts();
         List<ProductDto> products = new ArrayList<>(productMapper.toProductDtos(this.productService.findAllProducts()));
-        if (products.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        if (products.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 

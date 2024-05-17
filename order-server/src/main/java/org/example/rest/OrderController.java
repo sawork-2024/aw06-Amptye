@@ -44,9 +44,9 @@ public class OrderController implements OrdersApi {
     @Override
     public ResponseEntity<List<OrderDto>> listOrders() {
         List<OrderDto> orders = new ArrayList<>(orderMapper.toOrderDtos(this.orderService.findAllOrders()));
-        if (orders.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        if (orders.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 

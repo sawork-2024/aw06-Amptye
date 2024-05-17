@@ -1,6 +1,6 @@
 package org.example.service;
 
-import org.example.model.User;
+import org.example.model.Cart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,20 +15,18 @@ class LoadDatabase {
 
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
-    private final UserService userService;
+    private final CartService cartService;
 
     @Autowired
-    public LoadDatabase(UserService userService){
-        this.userService = userService;
+    public LoadDatabase(CartService cartService){
+        this.cartService = cartService;
     }
 
     @Bean
     CommandLineRunner initDatabase() {
 
         return args -> {
-            User user = new User("123","10086","10087","15968774896",true,10,"$","","");
-            user.setCartId(1);
-            userService.saveUser(user);
+            cartService.saveCart(new Cart());
         };
     }
 }

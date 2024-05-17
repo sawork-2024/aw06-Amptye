@@ -36,9 +36,9 @@ public class ItemController implements ItemsApi {
     @Override
     public ResponseEntity<List<ItemDto>> listItems() {
         List<ItemDto> items = new ArrayList<>(itemMapper.toItemDtos(this.cartService.findAllItems()));
-        if (items.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        if (items.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 

@@ -31,11 +31,11 @@ public class CategoryController implements CategoriesApi {
 
     @Override
     public ResponseEntity<List<CategoryDto>> listCategories() {
-        List<CategoryDto> categorys = new ArrayList<>(categoryMapper.toCategoryDtos(this.productService.findAllCategories()));
-        if (categorys.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(categorys, HttpStatus.OK);
+        List<CategoryDto> categories = new ArrayList<>(categoryMapper.toCategoryDtos(this.productService.findAllCategories()));
+//        if (categories.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+        return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
     @Override
