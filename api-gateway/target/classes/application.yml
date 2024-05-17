@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: api-gateway
+#  config:
+#    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
+  cloud:
+    config:
+      enabled: false
+    gateway:
+      routes:
+        - id: user-server
+          uri: lb://user-server
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=2
+        - id: product-server
+          uri: lb://product-server
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - StripPrefix=2
+        - id: cart-server
+          uri: lb://cart-server
+          predicates:
+            - Path=/api/cart/**
+          filters:
+            - StripPrefix=2
+        - id: order-server
+          uri: lb://order-server
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=2
+
+zuul:
+  prefix: /api
+  ignoredServices: '*'
+  routes:
+    user-server: /user/**
+    product-server: /product/**
+    cart-server: /cart/**
+    order-server: order/**
+    api-gateway: /gateway/**
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: application/json,text/css,application/javascript
+    min-response-size: 2048
+
+# Internationalization
+spring.messages.basename: messages/messages
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+    import: configserver:http://config-server:8888

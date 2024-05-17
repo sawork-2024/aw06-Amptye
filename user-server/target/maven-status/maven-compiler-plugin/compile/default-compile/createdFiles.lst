@@ -1,0 +1,8 @@
+org\example\service\UserServiceImp.class
+org\example\mapper\UserMapper.class
+org\example\repository\UserRepository.class
+org\example\model\User.class
+org\example\mapper\UserMapperImpl.class
+org\example\rest\UserController.class
+org\example\service\UserService.class
+org\example\UserApplication.class

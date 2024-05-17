@@ -1,0 +1,13 @@
+org\example\service\ProductServiceImp.class
+org\example\model\Product.class
+org\example\repository\CategoryRepository.class
+org\example\rest\CategoryController.class
+org\example\model\Category.class
+org\example\mapper\CategoryMapper.class
+org\example\repository\ProductRepository.class
+org\example\rest\ProductController.class
+org\example\mapper\ProductMapperImpl.class
+org\example\mapper\CategoryMapperImpl.class
+org\example\ProductApplication.class
+org\example\service\ProductService.class
+org\example\mapper\ProductMapper.class

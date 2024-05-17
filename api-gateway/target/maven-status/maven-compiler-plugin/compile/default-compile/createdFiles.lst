@@ -1,0 +1,6 @@
+org\example\application\UserServerClient.class
+org\example\boundary\web\ApiGatewayController.class
+org\example\application\OrderServerClient.class
+org\example\ApiGatewayApplication.class
+org\example\application\ProductServerClient.class
+org\example\application\CartServerClient.class
